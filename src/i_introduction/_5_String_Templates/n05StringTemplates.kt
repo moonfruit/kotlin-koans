@@ -1,5 +1,6 @@
 package i_introduction._5_String_Templates
 
+import org.intellij.lang.annotations.Language
 import util.TODO
 import util.doc5
 
@@ -19,6 +20,7 @@ you don't need to escape a backslash by a backslash.
 String template entries (${42}) are allowed here.
 """
 
+@Language("RegExp")
 fun getPattern() = """\d{2}\.\d{2}\.\d{4}"""
 
 fun example() = "13.06.1992".matches(getPattern().toRegex()) //true
@@ -35,4 +37,5 @@ fun todoTask5(): Nothing = TODO(
     documentation = doc5(),
     references = { getPattern(); month })
 
-fun task5(): String = todoTask5()
+@Language("RegExp")
+fun task5() = """\d{2} $month \d{4}"""
